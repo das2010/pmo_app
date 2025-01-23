@@ -1,0 +1,60 @@
+/* Estilos básicos para dibujar líneas de árbol con listas anidadas */
+.tree-container {
+  margin-top: 1rem;
+}
+
+.tree {
+  padding-left: 1rem;  /* Indentación general */
+  list-style: none;    /* Sin viñetas */
+  position: relative;
+  color: #333;
+}
+
+.tree ul {
+  margin: 0;
+  padding-left: 1.5em;
+  list-style: none;
+  position: relative;
+}
+
+.tree li {
+  margin: 0;
+  padding: 0 0 0 1em;  /* Espacio para la línea */
+  line-height: 1.5em;
+  position: relative;
+  font-weight: 500;
+}
+
+/* Línea vertical que une al padre con el hijo */
+.tree li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 1px solid #999;
+  height: 100%;
+}
+
+/* Línea horizontal que sale del nodo hacia la línea vertical */
+.tree li::after {
+  content: '';
+  position: absolute;
+  top: 0.9em;   /* Ajusta según tu gusto */
+  left: 0;
+  width: 20px;
+  border-top: 1px solid #999;
+}
+
+/* Para que el último hijo no extienda la línea vertical de más */
+.tree li:last-child::before {
+  height: 0.85em;
+}
+
+/* Clase para el texto del nodo, con un contorno */
+.tree-node-label {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
